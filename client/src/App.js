@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Title from "./components/Title";
+import "./App.css";
+import ErrorPage from "./components/ErrorPage";
+import History from "./components/History";
+import Members from "./components/Members";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav className="flex justify-between mt-8 ">
+        <Routes>
+          <Route path="/" element={<Title />} />
+          <Route path="/History" element={<History />} />
+          <Route path="/Members" element={<Members />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Header />
+      </nav>
     </div>
   );
 }
