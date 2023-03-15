@@ -8,6 +8,16 @@ const MainLayuot = ({ children, title, showButton }) => {
     setShowPopup(!showPopup);
   };
 
+  // const [inputHandler, setInputHandler] = useState(null);
+  // const change = (e) => {
+  //   setInputHandler(e.target.value);
+  // };
+
+  const [buttonHandler, setButtonHandler] = useState(false);
+  const button = (e) => {
+    e.preventDefault();
+    setButtonHandler(true);
+  };
   return (
     <>
       <header className="flex w-full justify-between mt-8">
@@ -81,7 +91,10 @@ const MainLayuot = ({ children, title, showButton }) => {
                   ></input>
                 </div>
                 <div className="flex justify-between gap-8 items-center ">
-                  <button className=" ml-2 mr-2 btn btn-outline rounded-full btn-sm pl-4">
+                  <button
+                    onClick={button}
+                    className=" ml-2 mr-2 btn btn-outline rounded-full btn-sm pl-4"
+                  >
                     skills
                   </button>
 
@@ -91,14 +104,19 @@ const MainLayuot = ({ children, title, showButton }) => {
                     className="w-[200px] mb-6 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
                     id="skills"
                     name="skills"
+                    // value={inputHandler}
+                    onChange={(e) => {
+                      buttonHandler(e.target.value);
+                    }}
                   />
                 </div>
-
-                <div className="flex justify-between gap-8 items-center mt-6">
-                  <div className="whitespace-nowrap p-2 border border-black rounded-full pl-4">
-                    skill 1
+                {buttonHandler ? (
+                  <div className="flex justify-between gap-8 items-center mt-6">
+                    <div className="whitespace-nowrap p-2 border border-black rounded-full">
+                      skill 1
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </form>
             </Popup>
           )}
