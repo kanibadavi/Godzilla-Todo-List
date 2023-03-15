@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Popup from "../components/Popup";
+
 const MainLayuot = ({ children, title, showButton }) => {
   const [showPopup, setShowPopup] = useState(false);
   const PopupHandler = () => {
     setShowPopup(!showPopup);
   };
+
   return (
     <>
       <header className="flex w-full justify-between mt-8">
@@ -25,41 +27,78 @@ const MainLayuot = ({ children, title, showButton }) => {
           {showPopup && (
             <Popup trigger={showPopup} setTrigger={PopupHandler}>
               <h1 className="text-xl">Add Member!</h1>
-              <form>
-                <label htmlFor="name">Name</label>
-                <input
-                  name="name"
-                  id="name"
-                  type="text"
-                  placeholder="Add member's name..."
-                  className="ml-2 mb-6 mt-6 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
-                ></input>
-                <br />
-                <label htmlFor="age">Age</label>
-                <input
-                  name="age"
-                  id="age"
-                  type="number"
-                  placeholder="Add member's age..."
-                  className="mb-6 ml-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
-                ></input>
-                <br />
-                <label htmlFor="github">Github Address</label>
-                <input
-                  name="github"
-                  id="github"
-                  type="url"
-                  placeholder="Add member's Github Address ..."
-                  className="mb-6 ml-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
-                ></input>
-                <label htmlFor="linkedin">Linkedin Address</label>
-                <input
-                  name="linkedin"
-                  id="linkedin"
-                  type="url"
-                  placeholder="Add member's linkedin Address ..."
-                  className="mb-6 ml-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
-                ></input>
+              <form className="ml-4 mr-4 text-lg max-w-[600px] w-[90%] py-6">
+                <div className="flex justify-between gap-8 items-center ">
+                  <label htmlFor="name" className="pl-4">
+                    Name
+                  </label>
+
+                  <input
+                    name="name"
+                    id="name"
+                    type="text"
+                    placeholder="Add member's name..."
+                    className="w-[200px] mb-6 mt-6 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
+                  />
+                </div>
+                <div className="flex justify-between gap-8 items-center ">
+                  <label htmlFor="age" className="pl-4">
+                    Age
+                  </label>
+
+                  <input
+                    name="age"
+                    id="age"
+                    type="number"
+                    placeholder="Add member's age..."
+                    className="w-[200px] mb-6 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
+                  ></input>
+                </div>
+                <div className="flex justify-between gap-8 items-center ">
+                  <label htmlFor="github" className="pl-4 whitespace-nowrap">
+                    Github Address
+                  </label>
+
+                  <input
+                    name="github"
+                    id="github"
+                    type="url"
+                    placeholder="Add Address ..."
+                    className="w-[200px] mb-6 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
+                  ></input>
+                </div>
+                <div className="flex justify-between gap-8 items-center ">
+                  <label htmlFor="linkedin" className="pl-4 whitespace-nowrap">
+                    Linkedin Address
+                  </label>
+
+                  <input
+                    name="linkedin"
+                    id="linkedin"
+                    type="url"
+                    placeholder="Add Address ..."
+                    className="w-[200px] mb-6 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
+                  ></input>
+                </div>
+                <div className="flex justify-between gap-8 items-center ">
+                  <button className=" ml-2 mr-2 btn btn-outline rounded-full btn-sm pl-4">
+                    skills
+                  </button>
+
+                  <input
+                    type="text"
+                    placeholder="Add member's skills..."
+                    className="w-[200px] mb-6 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full  py-0.5 px-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
+                    id="skills"
+                    name="skills"
+                  />
+                </div>
+
+                <div className="flex justify-between gap-8 items-center mt-6">
+                  <div className="whitespace-nowrap p-2 border border-black rounded-full pl-4">
+                    skill 1
+                  </div>
+                </div>
               </form>
             </Popup>
           )}
