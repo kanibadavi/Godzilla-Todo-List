@@ -1,4 +1,9 @@
-body {
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,6 +22,7 @@ code {
     monospace;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.myLabel{
+  @apply pl-4 w-12
+}
+}

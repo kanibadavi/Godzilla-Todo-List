@@ -1,4 +1,6 @@
 import MainLayout from "../layout/MainLayout";
+import userCards from "../components/userCards";
+
 const Members = () => {
   return (
     <MainLayout title={"Members"} showButton={"showButton"}>
@@ -12,6 +14,7 @@ const Members = () => {
           name="member"
         />
       </form>
+      <userCards />
     </MainLayout>
   );
 };

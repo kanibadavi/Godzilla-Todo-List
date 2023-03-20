@@ -1,7 +1,7 @@
 const Popup = (props) => {
   return props.trigger ? (
     <div className="popup fixed inset-0 bg-orange-300 bg-opacity-50 flex flex-col justify-center items-center">
-      <div className="popup-inner  bg-orange-500 rounded-lg ">
+      <div className="popup-inner  bg-orange-500 rounded-lg w-2/4 overflow-y-scroll ">
         <button
           className="flex ml-2 mt-2 btn btn-outline rounded-full"
           onClick={() => {
