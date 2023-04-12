@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Popup from "../components/Popup";
 import uuid from "react-uuid";
 import ImageUploader from "../components/PhotoUploader";
+import axios from "axios";
 
 const MainLayuot = ({ children, title, showButton }) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -31,6 +32,18 @@ const MainLayuot = ({ children, title, showButton }) => {
     setButtonHandler(result);
   };
 
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const dataObject = {
+      name: values.name,
+      age: values.age,
+      github: values.github,
+      linkedin: values.linkedin,
+    };
+    axios.post("http://localhost:8080/todos/", dataObject, {
+      headers: { "Content-Type": "application/json" },
+    });
+  };
   const [values, setValues] = useState({
     name: "",
     age: "",
@@ -64,7 +77,10 @@ const MainLayuot = ({ children, title, showButton }) => {
           {showPopup && (
             <Popup trigger={showPopup} setTrigger={PopupHandler}>
               <h1 className="text-xl">Add Member!</h1>
-              <form className="grid grid-cols-2 ml-4 mr-4 text-lg max-w-[600px] w-[90%] py-6">
+              <form
+                onSubmit={formSubmit}
+                className="grid grid-cols-2 ml-4 mr-4 text-lg max-w-[600px] w-[90%] py-6"
+              >
                 <div>
                   <div className="flex justify-between gap-8 items-center ">
                     <label htmlFor="name" className="myLabel">

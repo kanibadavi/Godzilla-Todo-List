@@ -1,5 +1,5 @@
 import MainLayout from "../layout/MainLayout";
-import userCards from "../components/userCards";
+import UserCards from "./UserCards";
 
 const Members = () => {
   return (
@@ -14,7 +14,8 @@ const Members = () => {
           name="member"
         />
       </form>
-      <userCards />
+      <br />
+      <UserCards />
     </MainLayout>
   );
 };
